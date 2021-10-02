@@ -1,4 +1,22 @@
-# SingletonDesignPattern
+# Adapter Design Pattern < in branch adapter >
+
+Thee code breaks the SOLID principles because :
+  1- There is no responsability for each class or for each methode , becشase all methods implements in the same class which name "Connection" 
+  2- There is no open-close feature , because any modification will be made to the code, I will modify it in every method
+  3- Threr is no interface to use it if I want to add a new class
+  
+  So to solve all these problem i am using **Singleton , Factory , Adapter Design Patterns**  :
+  1- Create "Connection" interface 
+  2- Create singleton class for each protocol and each class implements from the "Connection" interface
+  3- Create "ConnectionFactory" class will connect the client side with the interface and classes 
+  4- Creta "NewConnection" New Interface 
+  5- create new singleton class which implements from NewConnection
+  6- Create "ConnectionAdapter" class implements from NewConnection , which will use to connect 
+  
+  
+
+
+# SingletonDesignPattern < in branch singleton >
 
 ![Screenshot from 2021-09-24 15-20-04](https://user-images.githubusercontent.com/47281464/134673551-1017ab6c-dd8a-4e8f-9d0b-d37058d89bae.png)
 
