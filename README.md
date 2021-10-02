@@ -1,17 +1,17 @@
 # Adapter Design Pattern < in branch adapter >
 
-Thee code breaks the SOLID principles because :
-  1- There is no responsability for each class or for each methode , becشase all methods implements in the same class which name "Connection" 
-  2- There is no open-close feature , because any modification will be made to the code, I will modify it in every method
-  3- Threr is no interface to use it if I want to add a new class
+Thee code breaks the SOLID principles because : <br/>
+  1- There is no responsability for each class or for each methode , becشase all methods implements in the same class which name "Connection" <br/> 
+  2- There is no open-close feature , because any modification will be made to the code, I will modify it in every method <br/>
+  3- Threr is no interface to use it if I want to add a new class <br/>
   
-  So to solve all these problem i am using **Singleton , Factory , Adapter Design Patterns**  :
+  So to solve all these problem i am using **Singleton , Factory , Adapter Design Patterns**  : <br/>
   1- Create "Connection" interface 
-  2- Create singleton class for each protocol and each class implements from the "Connection" interface
-  3- Create "ConnectionFactory" class will connect the client side with the interface and classes 
-  4- Creta "NewConnection" New Interface 
-  5- create new singleton class which implements from NewConnection
-  6- Create "ConnectionAdapter" class implements from NewConnection , which will use to connect 
+  2- Create singleton class for each protocol and each class implements from the "Connection" interface <br/>
+  3- Create "ConnectionFactory" class will connect the client side with the interface and classes <br/>
+  4- Creta "NewConnection" New Interface <br/>
+  5- create new singleton class which implements from NewConnection<br/>
+  6- Create "ConnectionAdapter" class implements from NewConnection , which will use to connect <br/>
   
   
 
