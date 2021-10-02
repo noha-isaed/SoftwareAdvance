@@ -1,4 +1,4 @@
-# Adapter Design Pattern < in branch adapter >
+# Adapter Design Pattern " in branch adapter "
 
 Thee code breaks the SOLID principles because : <br/>
   1- There is no responsability for each class or for each methode , becشase all methods implements in the same class which name "Connection" <br/> 
@@ -16,7 +16,7 @@ Thee code breaks the SOLID principles because : <br/>
   
 
 
-# SingletonDesignPattern < in branch singleton >
+# SingletonDesignPattern " in branch singleton "
 
 ![Screenshot from 2021-09-24 15-20-04](https://user-images.githubusercontent.com/47281464/134673551-1017ab6c-dd8a-4e8f-9d0b-d37058d89bae.png)
 
