@@ -1,6 +1,10 @@
 package edu.najah.cap;
 import java.util.List;
 
+import edu.najah.edu.lagacy.protocol.ConnectionAdapter;
+import edu.najah.edu.lagacy.protocol.NewConnection;
+import edu.najah.edu.lagacy.protocol.TftpProtocol;
+
 public class ConnectionDemo {
 
 	public static void main(String[] args) {
@@ -8,12 +12,15 @@ public class ConnectionDemo {
 		System.out.println("Test Cases getConnection() Function"); 
 		System.out.println("*******");
 		
-		Connection httpConnection1 = Connection.getInstance(Connection.HTTP); 
-		Connection httpConnection2 = Connection.getInstance(Connection.HTTP);
-		Connection sshConnection = Connection.getInstance(Connection.SSH);
-		Connection ftpConnection1= Connection.getInstance(Connection.FTP);
-		Connection telnetConnection = Connection.getInstance(Connection.TELNET);
-		Connection ftpConnection2 = Connection.getInstance(Connection.FTP);
+		Connections httpConnection1 = ConnectionFactory.getConnection(HttpProtocol.HTTP); 
+		Connections httpConnection2 = ConnectionFactory.getConnection(HttpProtocol.HTTP);
+		Connections sshConnection = ConnectionFactory.getConnection(SshProtocol.SSH);
+		Connections ftpConnection1= ConnectionFactory.getConnection(FtpProtocol.FTP);
+		Connections telnetConnection = ConnectionFactory.getConnection(TelnetProtocol.TELNET);
+		Connections sshConnection2 = ConnectionFactory.getConnection(SshProtocol.SSH);
+
+		List<String> allConnections = ConnectionFactory.getCurrentConnections();
+		System.out.println(allConnections);
 		
 		System.out.println("*******");
 		System.out.println("Test Cases releas() Function"); 
@@ -21,26 +28,32 @@ public class ConnectionDemo {
 		
 		boolean isRealse1 = httpConnection1.releaseByObject();
 		System.out.println(isRealse1);
-		Connection httpConnection3 = Connection.getInstance(Connection.HTTP);
-		boolean isRealse2 = Connection.releaseByParameter(Connection.SCP);
-		System.out.println(isRealse2);
+
+		List<String> allConnections2 = ConnectionFactory.getCurrentConnections();
+		System.out.println(allConnections2);
 		
-		System.out.println("*******");
-		System.out.println("Test Cases getCurrentConnections() Function"); 
-		System.out.println("*******");
-		
-		List<String> allConnections = Connection.getCurrentConnections();
-		System.out.println(allConnections);
-		
+//		Connections httpConnection3 = ConnectionFactory.getConnection(HttpProtocol.HTTP);		
+	
 		System.out.println("*******");
 		System.out.println("Test Cases send() Function"); 
 		System.out.println("*******");
 		
 		sshConnection.send("Your Data");
 		ftpConnection1.send("Your Data");
-		ftpConnection2.send("Your Data");
+		sshConnection2.send("Your Data");
 
 		
+		NewConnection tftpConnection = TftpProtocol.getInstance ();
+		tftpConnection.sendNewConnection("Your Data");
+		List<String> allConnections3 = ConnectionFactory.getCurrentConnections();
+		System.out.println(allConnections3);
+		tftpConnection.releaseByObjectNewConnection();
+		List<String> allConnections4 = ConnectionFactory.getCurrentConnections();
+		System.out.println(allConnections4);
+		
+		NewConnection connectionAdapter = new ConnectionAdapter(httpConnection1);
+		connectionAdapter.sendNewConnection("Your Data");
+
 		
 	}
 	
