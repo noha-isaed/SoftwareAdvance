@@ -37,7 +37,7 @@ public class Editor extends JFrame implements ActionListener, DocumentListener {
 		
 		setMenu(new JMenuBar());
 		setJMenuBar(getMenu());
-		BuildMenu();
+		buildMenu();
 
 		setSize(Variable.WIDTH_OF_TEXT_PANEL, Variable.HEIGHT_OF_TEXT_PANEL);
 		
@@ -77,7 +77,7 @@ public class Editor extends JFrame implements ActionListener, DocumentListener {
 		return file;
 	}
 	
-	private void BuildMenu() {
+	private void buildMenu() {
 		menuBar.buildFileMenu(this);
 		menuBar.buildEditMenu(this);
 	}
