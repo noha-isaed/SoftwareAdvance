@@ -17,16 +17,16 @@ public class Logger {
 	
 
 	public void logInfo(String message) {
-		System.out.println(  " [Info] " + message);
+		System.out.println( java.time.LocalDateTime.now() + " [Info] " + message);
 	}	
 	public void logDebug(String message) {
-		System.out.println(  " [Debug] " + message);
+		System.out.println( java.time.LocalDateTime.now() + " [Debug] " + message);
 	}
 	public void logWarning(String message) {
-		System.err.println(  " [Warn] " + message);
+		System.err.println( java.time.LocalDateTime.now() + " [Warn] " + message);
 	}
 	public void logError(String message) {
-		System.err.println( " [Error] " + message);
+		System.err.println( java.time.LocalDateTime.now() + " [Error] " + message);
 	}
 	
 }
