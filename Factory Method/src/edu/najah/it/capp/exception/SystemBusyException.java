@@ -9,7 +9,7 @@ public class SystemBusyException extends ProtocolException {
 	@Override
 	public String getMessage() {
 		
-		return "[SystemBusyException :: ] " + super.getMessage();
+		return "[System Busy Exception :: ] " + super.getMessage();
 	}
 
 }

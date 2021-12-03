@@ -1,6 +1,5 @@
 package edu.najah.it.capp.asd.impl;
 
-import edu.najah.it.capp.asd.constants.ConnectionType;
 import edu.najah.it.capp.asd.constants.MyConstraints;
 import edu.najah.it.capp.asd.intf.Protocol;
 import edu.najah.it.capp.exception.ConnectionIsAlreadyReleasedEcxeption;
@@ -35,14 +34,14 @@ public class Ftp implements Protocol {
  
  		if(instance != null) {
  			instance = null;
-			Logger.getInstance().logInfo("The connection is release now");
+			Logger.getInstance().logInfo("The FTP connection is release now");
  			return true;
  		
  		}else if(instance == null ) {
-			throw new ConnectionIsAlreadyReleasedEcxeption("The connection already release");
+			throw new ConnectionIsAlreadyReleasedEcxeption("The FTP connection already release");
 			
  		}else if(status == MyConstraints.CONNECTION_IS_IN_USE_STATUS) {
-			throw new ConnectionIsUseException("You can't releas connection inuse ");
+			throw new ConnectionIsUseException("You can't releas the FTP connection while it is inuse ");
 		
  		}	
  		throw new UnableToReleaseConnectionException("There is an unknown error");
@@ -54,16 +53,16 @@ public class Ftp implements Protocol {
 		int status = MyConstraints.FIRST_STATUS ;
 
  		if (instance == null ){
- 			throw new NoConnectionException("You can't send via connection released");
+ 			throw new NoConnectionException("You can't send via FTP connection which released");
  	 		
  		}else if(status == MyConstraints.CONNECTION_IS_AVAILABLE_STATUS ) {
- 	 		System.out.println("Sending message from FTP :: " + message);
+ 			Logger.getInstance().logInfo("Sending message from FTP :: " + message);
  			
  		}else if(status == MyConstraints.SYSTEM_BUSY_STATUS ) {
- 			throw new SystemBusyException("There is no connection availale now because the system too busy");
+ 			throw new SystemBusyException("There is no FTP connection availale now because the system too busy");
  			
  		}else if(status == MyConstraints.TIMEOUT_ERRORR_STATUS ) {
- 			throw new TimeoutConnectionException("You can't send via connection released");
+ 			throw new TimeoutConnectionException("Can't send the message");
  		}
  		
  		

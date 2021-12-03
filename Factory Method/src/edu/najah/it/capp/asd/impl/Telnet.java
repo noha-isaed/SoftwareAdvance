@@ -33,14 +33,14 @@ private static boolean isSendMessage;
  
  		if(instance != null) {
  			instance = null;
-			Logger.getInstance().logInfo("The Connection Releas Now");
+			Logger.getInstance().logInfo("The TELNET connection is release now");
  			return true;
  		
  		}else if(instance == null ) {
-			throw new ConnectionIsAlreadyReleasedEcxeption("The connection already release");
+			throw new ConnectionIsAlreadyReleasedEcxeption("The TELNET connection already release");
 			
  		}else if(status == MyConstraints.CONNECTION_IS_IN_USE_STATUS) {
-			throw new ConnectionIsUseException("You can't releas connection inuse ");
+			throw new ConnectionIsUseException("You can't releas the TELNET connection while it is inuse ");
 		
  		}	
  		throw new UnableToReleaseConnectionException("There is an unknown error");
@@ -52,16 +52,16 @@ private static boolean isSendMessage;
 		int status = MyConstraints.FIRST_STATUS ;
 
  		if (instance == null ){
- 			throw new NoConnectionException("You can't send via connection released");
+ 			throw new NoConnectionException("You can't send via TELNET connection which released");
  	 		
  		}else if(status == MyConstraints.CONNECTION_IS_AVAILABLE_STATUS ) {
  	 		System.out.println("Sending message from TELNET :: " + message);
  			
  		}else if(status == MyConstraints.SYSTEM_BUSY_STATUS ) {
- 			throw new SystemBusyException("There is no connection availale now because the system too busy");
+ 			throw new SystemBusyException("There is no TELNET connection availale now because the system too busy");
  			
  		}else if(status == MyConstraints.TIMEOUT_ERRORR_STATUS ) {
- 			throw new TimeoutConnectionException("You can't send via connection released");
+ 			throw new TimeoutConnectionException("Can't send the message");
  		}
  		
  		

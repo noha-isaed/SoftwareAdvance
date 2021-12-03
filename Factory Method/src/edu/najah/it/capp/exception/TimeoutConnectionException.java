@@ -9,6 +9,6 @@ public class TimeoutConnectionException extends ProtocolException {
 	@Override
 	public String getMessage() {
 		
-		return "[TimeoutConnectionException :: ] " + super.getMessage();
+		return "[Timeout Error Exception :: ] " + super.getMessage();
 	}
 }

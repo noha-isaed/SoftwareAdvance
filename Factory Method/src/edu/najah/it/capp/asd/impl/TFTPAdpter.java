@@ -38,14 +38,14 @@ public class TFTPAdpter implements Protocol {
  		if(instance != null) {
  			tftpLegcy.releaseTFTP();
  			instance = null;
-			Logger.getInstance().logInfo("The Connection Releas Now");
+			Logger.getInstance().logInfo("The TFTPAdpter connection is release now");
  			return true;
  		
  		}else if(instance == null ) {
-			throw new ConnectionIsAlreadyReleasedEcxeption("The connection already release");
+			throw new ConnectionIsAlreadyReleasedEcxeption("The TFTPAdpter connection already release");
 			
  		}else if(status == MyConstraints.CONNECTION_IS_IN_USE_STATUS) {
-			throw new ConnectionIsUseException("You can't releas connection inuse ");
+			throw new ConnectionIsUseException("You can't releas the TFTPAdpter connection while it is inuse");
 		
  		}	
  		throw new UnableToReleaseConnectionException("There is an unknown error");
@@ -57,16 +57,16 @@ public class TFTPAdpter implements Protocol {
 		int status = MyConstraints.FIRST_STATUS ;
 		
  		if (instance == null ){
- 			throw new NoConnectionException("You can't send via connection released");
+ 			throw new NoConnectionException("You can't send via TFTPAdpter connection which released");
  	 		
  		}else if(tftpLegcy != null) {
 			tftpLegcy.sendMessage(message);
  			
  		}else if(status == MyConstraints.SYSTEM_BUSY_STATUS ) {
- 			throw new SystemBusyException("There is no connection availale now because the system too busy");
+ 			throw new SystemBusyException("There is no TFTPAdpter connection availale now because the system too busy");
  			
  		}else if(status == MyConstraints.TIMEOUT_ERRORR_STATUS ) {
- 			throw new TimeoutConnectionException("You can't send via connection released");
+ 			throw new TimeoutConnectionException("Can't send the message");
  		}
  		
  		

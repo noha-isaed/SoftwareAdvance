@@ -9,6 +9,6 @@ public class UnableToReleaseConnectionException extends ProtocolException {
 	@Override
 	public String getMessage() {
 		
-		return "[UnableToReleaseConnectionException :: ] " + super.getMessage();
+		return "[Unable To Release Connection Exception :: ] " + super.getMessage();
 	}
 }

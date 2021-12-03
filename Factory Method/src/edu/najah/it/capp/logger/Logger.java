@@ -20,7 +20,7 @@ public class Logger {
 		System.out.println(  " [Info] " + message);
 	}	
 	public void logDebug(String message) {
-		System.out.println(  " [Debug] " + message);
+		System.out.println( " [Debug] " + message);
 	}
 	public void logWarning(String message) {
 		System.err.println(  " [Warn] " + message);

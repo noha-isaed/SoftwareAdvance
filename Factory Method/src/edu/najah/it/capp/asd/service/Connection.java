@@ -24,7 +24,7 @@ public class Connection {
 	//getInstance, createConnection , getConnection 
 	public static Protocol getInstance(String connectionType) throws ProtocolException{
 		if(connections.containsKey(connectionType)) {
-			Logger.getInstance().logWarning("Connection is already created!.");
+			Logger.getInstance().logWarning("The " + connectionType +" Connection is already created!.");
 			return (Protocol) connections.get(connectionType);
 		} else {
 			if(connections.size() >= 3 ) {

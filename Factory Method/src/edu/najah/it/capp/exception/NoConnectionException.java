@@ -9,7 +9,7 @@ public class NoConnectionException extends ProtocolException {
 	@Override
 	public String getMessage() {
 		
-		return "[NoConnectionException :: ] " + super.getMessage();
+		return "[No Connection Available Exception :: ] " + super.getMessage();
 	}
 
 }

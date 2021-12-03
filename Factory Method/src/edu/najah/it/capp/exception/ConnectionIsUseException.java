@@ -10,7 +10,7 @@ public class ConnectionIsUseException extends ProtocolException {
 	@Override
 	public String getMessage() {
 		
-		return "[ConnectionIsUseException :: ] " + super.getMessage();
+		return "[Connection Is Inuse Exception :: ] " + super.getMessage();
 	}
 
 }

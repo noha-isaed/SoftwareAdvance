@@ -10,7 +10,7 @@ public class ConnectionIsAlreadyReleasedEcxeption extends ProtocolException {
 	@Override
 	public String getMessage() {
 		
-		return "[ConnectionIsAlreadyReleasedEcxeption :: ] " + super.getMessage();
+		return "[Connection Is Already Released Ecxeption :: ] " + super.getMessage();
 	}
 
 }

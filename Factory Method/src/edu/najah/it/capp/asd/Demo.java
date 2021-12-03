@@ -20,6 +20,7 @@ import edu.najah.it.capp.logger.Logger;
 public class Demo {
 
 	public static void main(String[] args) throws ProtocolException {
+		
         int numberOfTries = 5;
 
 		Logger.getInstance().logInfo("This is a info message");
